@@ -7,6 +7,8 @@ public class Dog extends RealmObject {
     private String name;
     private int age;
 
+    public Dog() {}
+
     public Dog(String name, int age) {
         this.name = name;
         this.age = age;

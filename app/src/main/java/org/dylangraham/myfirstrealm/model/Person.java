@@ -11,6 +11,8 @@ public class Person extends RealmObject {
     private String name;
     private RealmList<Dog> dogs;
 
+    public Person() {}
+
     public Person(long id, String name, RealmList<Dog> dogs) {
         this.id = id;
         this.name = name;
