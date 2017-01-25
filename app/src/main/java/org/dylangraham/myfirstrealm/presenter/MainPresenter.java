@@ -1,6 +1,7 @@
 package org.dylangraham.myfirstrealm.presenter;
 
 import org.dylangraham.myfirstrealm.model.Dog;
+import org.dylangraham.myfirstrealm.model.Person;
 import org.dylangraham.myfirstrealm.view.MainActivity;
 
 import io.realm.Realm;
@@ -23,6 +24,12 @@ public class MainPresenter implements MainPresenterInterface {
 
         Realm.init(mainActivity);
         Realm realm = Realm.getDefaultInstance();
+        realm.beginTransaction();
+        realm.copyToRealm(d1);
+        realm.copyToRealm(d2);
+        realm.copyToRealm(d3);
+        realm.commitTransaction();
+
         puppies = realm.where(Dog.class).lessThan("age", 5).findAll();
     }
 
